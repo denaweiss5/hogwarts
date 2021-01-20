@@ -30,7 +30,7 @@ class HogCard extends Component {
  
   toggleHog = () => {
     this.setState({
-      toggleHog: !this.state.toggled
+      toggled: !this.state.toggled
     })
   }
 
