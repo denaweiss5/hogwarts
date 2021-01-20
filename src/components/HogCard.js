@@ -6,7 +6,8 @@ class HogCard extends Component {
     super()
 
     this.state = {
-      showDetails: false
+      showDetails: false,
+      toggled: false
     }
   }
 
@@ -27,6 +28,11 @@ class HogCard extends Component {
     })
   }
  
+  toggleHog = () => {
+    this.setState({
+      toggleHog: !this.state.toggled
+    })
+  }
 
   render() {
       
@@ -37,7 +43,9 @@ class HogCard extends Component {
     return (
       <div className="ui eight wide column">
         <h1>{ name }</h1>
-        <img src={pigImage} onClick={this.handleClick}/>
+        <button onClick={this.toggleHog}>toggle Hog Image</button>
+        {this.state.toggled ? null : <img src={pigImage} onClick={this.handleClick}/>}
+        
         {this.state.showDetails ? this.renderDetails() : null }
 
        
